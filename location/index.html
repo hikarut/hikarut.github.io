@@ -10,8 +10,8 @@
 if (navigator.geolocation) {
     document.getElementById("msg").textContent="Geolocation APIに対応している";
     navigator.geolocation.getCurrentPosition(
-        // [第1引数] 取得に成功した場合の関数
-        function(position) {
+        // 第1引数 取得に成功した場合の関数
+        function (position) {
             // 取得したデータの整理
             var data = position.coords;
 
@@ -31,6 +31,18 @@ if (navigator.geolocation) {
             } else {
                 document.getElementById("location").textContent = "熊本県ではありません";
             }
+        },
+
+        // 第2引数 取得に失敗した場合の関数
+        function (error) {
+            // エラーコードのメッセージを定義
+            var errorMessage = {
+                0: "原因不明のエラーが発生しました…。" ,
+                1: "位置情報の取得が許可されませんでした…。" ,
+                2: "電波状況などで位置情報が取得できませんでした…。" ,
+                3: "位置情報の取得に時間がかかり過ぎてタイムアウトしました…。" ,
+            };
+            document.getElementById("result").textContent = errorMessage[error.code];
         }
     );
 } else {
