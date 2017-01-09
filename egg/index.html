@@ -1,3 +1,19 @@
+
+<?php
+$password = "12345";
+$id = "testID";
+echo "テスト";
+
+$userPass = $_GET['pass'];
+$userId = $_GET['id'];
+
+if ($userPass === $password) {
+	echo "OK";
+} else {
+	echo "NG";
+}
+?>
+
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -73,7 +89,7 @@
 					</div>
 				</div>
 			</section>
-			
+
 		<!-- Two -->
 			<section id="two" class="wrapper style2">
 				<header class="major">
@@ -105,7 +121,7 @@
 					</div>
 				</div>
 			</section>
-			
+
 		<!-- Footer -->
 			<footer id="footer">
 				<div class="container">
